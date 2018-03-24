@@ -1,0 +1,107 @@
+<view class="container">
+
+  <view class="box-home">
+    <view class="home-position">
+      <text class="home-lon-lat">经113.12，维23.02</text>
+      <text class="home-country">中国</text>
+
+    </view>
+    <text class="city">佛山</text>
+    <text class="weather">多云</text>
+    <view class="weather-img-num">
+      <view class="weather-img">
+        <image src="/image/10.png"></image>
+      </view>
+      
+      <view class="weather-num">
+        <text class="t-range">18~25℃</text>
+        <view class="t-now"><text class="t-now-num">25</text><text class="t-unit">℃</text></view>
+      </view>
+    </view>
+    <view class="weather-wind-time">
+      <view class="weather-wind"> <text>西南风 2级</text> </view>
+      <view class="weather-time"> <text>更新：2018-03-24 14:47</text> </view>
+    </view>
+  </view>
+
+  <view class="box-hours">
+    <!-- <view class="weather-title">
+      <text>小时预报</text>
+    </view> -->
+    <!-- <block wx-for="weatherData_hours">
+    </block> -->
+    <view class="hours-list">
+      <view class="hours-item">
+        <text class="hours-time">16:00</text>
+        <text class="hours-weather">多云</text>
+        <image class="hours-img" src="/image/0.png"></image>
+        <text class="hours-t">24℃</text>
+      </view>
+      <view class="hours-item">
+        <text class="hours-time">16:00</text>
+        <text class="hours-weather">多云</text>
+        <image class="hours-img" src="/image/0.png"></image>
+        <text class="hours-t">24℃</text>
+      </view>
+      <view class="hours-item">
+        <text class="hours-time">16:00</text>
+        <text class="hours-weather">多云</text>
+        <image class="hours-img" src="/image/0.png"></image>
+        <text class="hours-t">24℃</text>
+      </view>
+      <view class="hours-item">
+        <text class="hours-time">16:00</text>
+        <text class="hours-weather">多云</text>
+        <image class="hours-img" src="/image/0.png"></image>
+        <text class="hours-t">24℃</text>
+      </view>
+      <view class="hours-item">
+        <text class="hours-time">16:00</text>
+        <text class="hours-weather">多云</text>
+        <image class="hours-img" src="/image/0.png"></image>
+        <text class="hours-t">24℃</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="box-days">
+    <!-- <view class="weather-title">
+      <text>三天预报</text>
+    </view> -->
+    <view class="days-list">
+      <view class="days-item">
+        <text class="days-date">03-24</text>
+        <text>多云</text>
+        <image class="days-img" src="/image/10.png"></image>
+        <text>18℃</text>
+        <text>25℃</text>
+        <image class="days-img" src="/image/6.png"></image>
+        <text>无持续风向</text>
+        <text>1-2级</text>
+      </view>
+      <view class="days-item">
+        <text class="days-date">03-24</text>
+        <text>多云</text>
+        <image class="days-img" src="/image/10.png"></image>
+        <text>18℃</text>
+        <text>25℃</text>
+        <image class="days-img" src="/image/6.png"></image>
+        <text>无持续风向</text>
+        <text>1-2级</text>
+      </view>
+      <view class="days-item">
+        <text class="days-date">03-24</text>
+        <text>多云</text>
+        <image class="days-img" src="/image/10.png"></image>
+        <text>18℃</text>
+        <text>25℃</text>
+        <image class="days-img" src="/image/6.png"></image>
+        <text>无持续风向</text>
+        <text>1-2级</text>
+      </view>
+    </view>  
+  </view>
+
+  <view class="box-suggests"></view>
+
+</view>

@@ -1,0 +1,22 @@
+{
+  "pages":[
+    "pages/weather/weather",
+    "pages/map/map",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "navigationBarBackgroundColor": "#005bff",
+    "navigationBarTitleText": "出行天地",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "list":[
+      {"pagePath":"pages/weather/weather","text":"天气","iconPath": "image/icon_component.png","selectedIconPath":"image/icon_component_HL.png"},{"pagePath":"pages/map/map","text":"地图","iconPath":"image/icon_API.png","selectedIconPath": "image/icon_API_HL.png"}
+    ],
+    "color":"rgb(0,0,0)",
+    "selectedColor":"rgb(0,255,0)",
+    "borderStyle":"black",
+    "position":"bottom"
+  }
+}
