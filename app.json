@@ -6,16 +6,16 @@
     "pages/logs/logs"
   ],
   "window":{
-    "navigationBarBackgroundColor": "#005bff",
-    "navigationBarTitleText": "出行天地",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "天气君",
     "navigationBarTextStyle":"black"
   },
   "tabBar":{
     "list":[
-      {"pagePath":"pages/weather/weather","text":"天气","iconPath": "image/icon_component.png","selectedIconPath":"image/icon_component_HL.png"},{"pagePath":"pages/map/map","text":"地图","iconPath":"image/icon_API.png","selectedIconPath": "image/icon_API_HL.png"}
+      {"pagePath":"pages/weather/weather","text":"天气","iconPath": "image/weather.png","selectedIconPath":"image/weather-active.png"},{"pagePath":"pages/map/map","text":"关于","iconPath":"image/face.png","selectedIconPath": "image/face-active.png"}
     ],
-    "color":"rgb(0,0,0)",
-    "selectedColor":"rgb(0,255,0)",
+    "color":"#888888",
+    "selectedColor":"rgb(20,200,250)",
     "borderStyle":"black",
     "position":"bottom"
   }
