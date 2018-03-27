@@ -1,0 +1,202 @@
+
+var cutStrToEnd = function (str,startNum) {
+  return str.slice(startNum);
+}
+
+//设置背景色
+var setBgc = function (str, dn){
+  //若晴天 且时间在 日落~日出 则return黑夜背景 #020239
+  //var startNum = (start+'').replace(":", "") * 1;
+  //var endNum = (end+'').replace(":", "") * 1;
+  //var today = new Date();
+  //var timeNum = today.getHours() * 100 + today.getMinutes();
+  // if ((str == "100" || str == "900") && (timeNum < start || timeNum > end)) {
+  //   return "#020239";
+  // }
+  if ((str == "100" || str == "900") && dn == "n") {
+    return "#020239";
+  }
+
+  switch (str) {
+    case '100': case '103': case '900':
+      return '#006dff'; //晴，晴间多云
+
+    case '101': case '102': case '400': case '401': case '402': case '403': case '404': case '405': case '406': case '407': case '901':
+      return '#06CCC7'; //多云 少云 雪
+
+    //阴天 风 雾 沙尘
+    case '104': case '200': case '201': case '202': case '203': case '204': case '205': case '206': case '207': case '208': case '209': case '210': case '211': case '212': case '213': case '500': case '501': case '502': case '503': case '504': case '507': case '508':
+      return '#CCCCCC';
+
+    //雨
+    case '300': case '301': case '305': case '306': case '307': case '308': case '309': case '310': case '311': case '312': case '313':
+      return '#77BBBB';
+
+    //雷阵雨
+    case '302': case '303': case '304':
+      return '#969696';
+
+    default:
+      return '#006dff'; //默认返回晴天
+  }
+};
+
+//设置天气动画
+var setWeaClass = function(str,dn){
+  //若晴天 且时间在 日落~日出 则return stary
+  //var startNum = start.replace(":", "") * 1;
+  //var endNum = end.replace(":", "") * 1;
+  //var today = new Date();
+  //var timeNum = today.getHours() * 100 + today.getMinutes();
+  // if ( (str == "100" || str == "900") && (timeNum < start || timeNum > end) ){
+  //   return "starry";
+  // }
+  if ((str == "100" || str == "900") && dn == "n" ) {
+    return "starry";
+  }
+  
+
+  switch (str) {
+    case '100': case '900':
+      return 'sunny'; //晴 热
+    case '103': case '101': case '102':
+      return 'sun-cloudy'; //晴间多云 多云 少云
+
+      case '104': case '200': case '201': case '202': case '203': case '204': case '205': case '206': case '207': case '208': case '209': case '210': case '211': case '212': case '213': case '500': case '501': case '502': case '503': case '504': case '507': case '508':
+      return 'cloudy'; // ，阴天 雾 沙尘。背景色不同
+    
+    case '400': case '401': case '402': case '403': case '404': case '405': case '406': case '407': case '901':
+      return 'snow'; // 雪 冷
+    
+    //雨
+    case '300': case '301': case '305': case '306': case '307': case '308': case '309': case '310': case '311': case '312': case '313':
+      return 'rain';
+     
+     //雷阵雨
+    case '302': case '303': case '304':
+      return 'stormy';
+
+    default:
+      return 'sunny'; //默认返回晴天
+  }
+};
+
+var setDaysWeaD = function(str){
+  switch (str) {
+    case '100': case '900':
+      return '1.svg'; //晴 热
+    case '101': case '102': case '103':
+      return '12.svg'; //多云
+    case '104': case '201':
+      return '2.svg'; //阴天 平静
+    case '200': case '202': case '203': case '204':
+      return '7.svg'; //风 
+    case '205': case '206': case '207': case '208':
+      return '7b.svg'; //大风 
+    case '209': case '210': case '211': case '212': case '213':
+      return '7bb.svg'; //风暴
+    case '300': case '301': case '305': case '306': case '307': case '308': case '309': case '310': case '311': case '312': case '313'://雨
+      return '3.svg';
+    case '302': case '303': case '304':
+      return '4.svg'; //雷阵雨
+    case '400': case '401': case '402': case '403': case '404': case '405': case '406': case '407': case '901':
+      return '5.svg'; // 雪 冷
+    case '500': case '501': case '502':
+      return '6.svg'; //雾
+    case '503': case '504': case '507': case '508':
+      return '8.svg'; //沙尘
+    default:
+      return '1.svg'; //默认返回晴天
+  }
+};
+
+var setDaysWeaN = function (str) {
+  switch (str) {
+    case '100': case '900':
+      return '1n.svg'; //晴 热
+    case '101': case '102': case '103':
+      return '12n.svg'; //多云
+    case '104': case '201':
+      return '2.svg'; //阴天 平静
+    case '200': case '202': case '203': case '204':
+      return '7.svg'; //风 
+    case '205': case '206': case '207': case '208':
+      return '7b.svg'; //大风 
+    case '209': case '210': case '211': case '212': case '213':
+      return '7bb.svg'; //风暴
+    case '300': case '301': case '305': case '306': case '307': case '308': case '309': case '310': case '311': case '312': case '313'://雨
+      return '3.svg';
+    case '302': case '303': case '304':
+      return '4.svg'; //雷阵雨
+    case '400': case '401': case '402': case '403': case '404': case '405': case '406': case '407': case '901':
+      return '5.svg'; // 雪 冷
+    case '500': case '501': case '502':
+      return '6.svg'; //雾
+    case '503': case '504': case '507': case '508':
+      return '8.svg'; //沙尘
+    default:
+      return '1.svg'; //默认返回晴天
+  }
+};
+
+var setHoursWea = function (str, dn) {
+  var timeNum = timeNum * 1;
+  var start = start * 1;
+  var end = end * 1;
+  if ((str == "100" || str == "900") && dn == "n") {
+    //夜间晴天
+    return "1n.svg";
+  } else if ((str == "101" || str == "102" || str == "103") && dn == "n") {
+    //夜间多云
+    return "12n.svg";
+  } else {
+    switch (str) {
+      case '100': case '900':
+        return '1.svg'; //晴 热
+      case '101': case '102': case '103':
+        return '12.svg'; //多云
+      case '104': case '201':
+        return '2.svg'; //阴天 平静
+      case '200': case '202': case '203': case '204':
+        return '7.svg'; //风 
+      case '205': case '206': case '207': case '208':
+        return '7b.svg'; //大风 
+      case '209': case '210': case '211': case '212': case '213':
+        return '7bb.svg'; //风暴
+      case '300': case '301': case '305': case '306': case '307': case '308': case '309': case '310': case '311': case '312': case '313'://雨
+        return '3.svg';
+      case '302': case '303': case '304':
+        return '4.svg'; //雷阵雨
+      case '400': case '401': case '402': case '403': case '404': case '405': case '406': case '407': case '901':
+        return '5.svg'; // 雪 冷
+      case '500': case '501': case '502':
+        return '6.svg'; //雾
+      case '503': case '504': case '507': case '508':
+        return '8.svg'; //沙尘
+      default:
+        return '1.svg'; //默认返回晴天
+    }
+  }
+
+
+};
+
+var judgeDn = function (str, timeNum, start, end){
+  if ( timeNum < start || timeNum > end ) {
+    console.log("夜间");
+    setDaysWeaN(str);
+  } else if ( timeNum > start && timeNum < end ){
+    console.log("白天");
+    setDaysWeaD(str);
+  }
+}
+
+module.exports = {
+  cutStrToEnd: cutStrToEnd,
+  setBgc: setBgc,
+  setWeaClass: setWeaClass,
+  setHoursWea: setHoursWea,
+  setDaysWeaD: setDaysWeaD,
+  setDaysWeaN: setDaysWeaN,
+  judgeDn: judgeDn
+};

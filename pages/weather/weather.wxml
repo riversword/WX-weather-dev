@@ -1,40 +1,40 @@
 <view class="container">
-
-  <view class="box-home">
-    <!-- <view class="home-position">
-      <text class="home-lon-lat">经113.12，维23.02</text>
-      <text class="home-country">中国</text>
-    </view> -->
+<wxs src="tools.wxs" module="tools" />
+  <view class="box-home" style="background-color:{{tools.setBgc(weatherData.now.cond.code,now_dn)}}">
+  
     <view class="home-top">
       <view class="weather-num">
         <view class="t-now">
-          <text class="t-now-num">25</text>
+          <text class="t-now-num">{{weatherData.now.tmp}}</text>
           <text class="t-unit">℃</text>
         </view>
-        <text class="t-range">18~25℃</text>
+        <text class="t-range">{{weatherData.daily_forecast[0].tmp.min + "~" + weatherData.daily_forecast[0].tmp.max}}℃</text>
       </view>
-      
-      <view class="city"><image src="/image/address.svg"></image> <text>佛山</text></view>
+
+      <view class="city">
+        <image src="/image/address.svg"></image>
+        <text>{{weatherData.basic.city}}</text>
+      </view>
     </view>
 
-    <text class="weather">多云</text>
+    <text class="weather">{{weatherData.now.cond.txt}}</text>
 
     <view class="weather-img">
-        <!-- <image src="/image/10.png"></image>   -->
-          <view class="snow"></view>  
+      <!-- <image src="/image/10.png"></image>   -->
+      <wxs src="tools.wxs" module="tools" />
+      <view class="{{tools.setWeaClass(weatherData.now.cond.code,now_dn)}}"></view>
     </view>
 
     <view class="weather-wind-air">
       <view class="weather-wind">
-      <image src="/image/wind-white2.svg"></image>
-        <text>西南风 2级</text> </view>
-      <!-- <view class="weather-time">
-        <text>更新：2018-03-24 14:47</text> 
-      </view> -->
+        <image src="/image/wind-white2.svg"></image>
+        <text>{{weatherData.now.wind.dir + " " + weatherData.now.wind.sc}}级</text>
+      </view>
+
       <view class="vertical-line"></view>
       <view class="weather-air">
-      <image src="/image/air-white.svg"></image>
-        <text>空气质量 良</text> 
+        <image src="/image/air-white.svg"></image>
+        <text>{{"空气质量 " + weatherData.aqi.city.qlty}}</text>
       </view>
     </view>
   </view>
@@ -42,175 +42,101 @@
   <view>
     <swiper autoplay='true' vertical='true'>
       <swiper-item>
-        <view><text class="wea-detail-name">日出时间</text> <text class="wea-detail-value">06:26</text></view>
-        <view><text class="wea-detail-name">日落时间</text> <text class="wea-detail-value">18:40</text></view>
+        <view>
+          <text class="wea-detail-name">日出时间</text>
+          <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.sr}}</text>
+        </view>
+        <view>
+          <text class="wea-detail-name">日落时间</text>
+          <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.ss}}</text>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view><text class="wea-detail-name">体感温度</text> <text class="wea-detail-value">18℃</text></view>
-        <view><text class="wea-detail-name">相对湿度</text> <text class="wea-detail-value">76</text></view>
+        <view>
+          <text class="wea-detail-name">体感温度</text>
+          <text class="wea-detail-value">{{weatherData.now.fl}}℃</text>
+        </view>
+        <view>
+          <text class="wea-detail-name">相对湿度</text>
+          <text class="wea-detail-value">{{weatherData.now.hum}}</text>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view><text class="wea-detail-name">降雨量</text> <text class="wea-detail-value">0.0</text></view>
-        <view><text class="wea-detail-name">大气压强</text> <text class="wea-detail-value">1020</text></view>
+        <view>
+          <text class="wea-detail-name">降雨量</text>
+          <text class="wea-detail-value">{{weatherData.now.pcpn}}mm</text>
+        </view>
+        <view>
+          <text class="wea-detail-name">大气压强</text>
+          <text class="wea-detail-value">{{weatherData.now.pres}}hPa</text>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view><text class="wea-detail-name">可见度</text> <text class="wea-detail-value">5km</text></view>
-        <view><text class="wea-detail-name">PM2.5</text> <text class="wea-detail-value">36</text></view>
+        <view>
+          <text class="wea-detail-name">可见度</text>
+          <text class="wea-detail-value">{{weatherData.now.vis}}km</text>
+        </view>
+        <view>
+          <text class="wea-detail-name">PM2.5</text>
+          <text class="wea-detail-value">{{weatherData.aqi.city.pm25}}</text>
+        </view>
       </swiper-item>
       <swiper-item>
-        <view><text class="wea-detail-name">空气质量</text> <text class="wea-detail-value">良</text></view>
-        <view><text class="wea-detail-name">空气质量指数</text> <text class="wea-detail-value">65</text></view>
+        <view>
+          <text class="wea-detail-name">空气质量</text>
+          <text class="wea-detail-value">{{weatherData.aqi.city.qlty}}</text>
+        </view>
+        <view>
+          <text class="wea-detail-name">空气质量指数</text>
+          <text class="wea-detail-value">{{weatherData.aqi.city.aqi}}</text>
+        </view>
       </swiper-item>
     </swiper>
   </view>
 
   <view class="box-hours">
-    <!-- <view class="weather-title">
-      <text>小时预报</text>
-    </view> -->
-    <!-- <block wx-for="weatherData_hours">
-    </block> -->
-    <view class="hours-list">
-      <view class="hours-item">
-        <text class="hours-time">16:00</text>
-        <text class="hours-weather">多云</text>
-        <image class="hours-img" src="/image/0.png"></image>
-        <text class="hours-t">24℃</text>
+    <wxs src="tools.wxs" module="tools" />
+    <block wx:for="{{weatherData.hourly_forecast}}" wx:for-index="idx" wx:for-item="item" wx:key="key">
+      <view class="hours-list">
+        <view class="hours-item" style="border-top:{{idx==0 ? 0 : '1px'}} rgb(220,220,220) solid">
+           <text class="hours-time">{{tools.cutStrToEnd(item.date,5)}}</text> 
+           <text class="hours-weather">{{item.cond.txt}}</text> 
+          <!-- <view class="hours-item-right"> -->
+             <image class="hours-img" src="/image/wea-icon/{{tools.setHoursWea(item.cond.code,hours_dn[idx])}}"></image> 
+             <text class="hours-t">{{item.tmp}}℃</text>  
+
+          <!-- </view> -->
+        </view>
       </view>
-      <view class="hours-item">
-        <text class="hours-time">16:00</text>
-        <text class="hours-weather">多云</text>
-        <image class="hours-img" src="/image/0.png"></image>
-        <text class="hours-t">24℃</text>
-      </view>
-      <view class="hours-item">
-        <text class="hours-time">16:00</text>
-        <text class="hours-weather">多云</text>
-        <image class="hours-img" src="/image/0.png"></image>
-        <text class="hours-t">24℃</text>
-      </view>
-      <view class="hours-item">
-        <text class="hours-time">16:00</text>
-        <text class="hours-weather">多云</text>
-        <image class="hours-img" src="/image/0.png"></image>
-        <text class="hours-t">24℃</text>
-      </view>
-      <view class="hours-item">
-        <text class="hours-time">16:00</text>
-        <text class="hours-weather">多云</text>
-        <image class="hours-img" src="/image/0.png"></image>
-        <text class="hours-t">24℃</text>
-      </view>
-    </view>
+    </block>
   </view>
 
   <view class="box-days">
-    <!-- <view class="weather-title">
-      <text>三天预报</text>
-    </view> -->
     <scroll-view scroll-x="true" style="width: 100%" class="days-list">
-    
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
+      <wxs src="tools.wxs" module="tools" />
+      <block wx:for="{{weatherData.daily_forecast}}" wx:for-item="item" wx:key="key-day-forecast">
+        <view class="days-item">
+          <view>
+            <text class="days-date">{{tools.cutStrToEnd(item.date,5)}}</text>
+          </view>
+          <view class="days-wea">
+            <text>{{item.cond.txt_d}}</text>
+          </view>
+          <image class="days-img" src="/image/wea-icon/{{tools.setDaysWeaD(item.cond.code_d)}}"></image>
+          <view class="days-t">
+            <text>{{item.tmp.max}}℃</text>
+            <text>{{item.tmp.min}}℃</text>
+          </view>
+          <image class="days-img" src="/image/wea-icon/{{tools.setDaysWeaN(item.cond.code_n)}}"></image>
+          <view class="days-wea">
+            <text>{{item.cond.txt_n}}</text>
+          </view>
+          <view class="days-wind">
+            <text>{{item.wind.dir}}</text>
+            <text>{{item.wind.sc}}级</text>
+          </view>
         </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      <view class="days-item">
-        <view><text class="days-date">03-24</text></view>
-        <view><text>良</text></view>
-        <view class="days-wea"><text>多云</text></view>
-        <image class="days-img" src="/image/10.png"></image>
-        <view class="days-t">
-        <text>18℃</text>
-        <text>25℃</text>
-        </view>
-        <image class="days-img" src="/image/6.png"></image>
-        <view class="days-wea"><text>多云</text></view>
-        <view class="days-wind"><text>无持续风向</text>
-        <text>1-2级</text></view>
-      </view>
-      
-      
-    
+      </block>
     </scroll-view>
   </view>
 
@@ -218,44 +144,46 @@
     <view class="index-1">
       <image src="/image/dress.svg"></image>
       <text class="index-name">穿衣指数</text>
-      <text class="index-value">最弱</text>
+      <text class="index-value">{{weatherData.suggestion.drsg.brf}}</text>
     </view>
     <view class="index-1">
       <image src="/image/sun_cream.svg"></image>
-      <text class="index-name">防晒指数</text>
-      <text class="index-value">最弱</text>
+      <text class="index-name">紫外线</text>
+      <text class="index-value">{{weatherData.suggestion.uv.brf}}</text>
     </view>
     <view class="index-1">
       <image src="/image/sport.svg"></image>
       <text class="index-name">户外运动</text>
-      <text class="index-value">最弱</text>
+      <text class="index-value">{{weatherData.suggestion.sport.brf}}</text>
     </view>
     <view class="index-1">
       <image src="/image/car.svg"></image>
       <text class="index-name">洗车指数</text>
-      <text class="index-value">最弱</text>
+      <text class="index-value">{{weatherData.suggestion.cw.brf}}</text>
     </view>
     <view class="index-1">
       <image src="/image/pill.svg"></image>
       <text class="index-name">感冒指数</text>
-      <text class="index-value">最弱</text>
+      <text class="index-value">{{weatherData.suggestion.flu.brf}}</text>
     </view>
     <view class="index-1">
       <image src="/image/travel.svg"></image>
       <text class="index-name">旅游指数</text>
-      <text class="index-value">最弱</text>
+      <text class="index-value">{{weatherData.suggestion.trav.brf}}</text>
     </view>
     <view class="index-1">
-       <image src="/image/air.svg"></image>
+      <image src="/image/air.svg"></image>
       <text class="index-name">空气质量</text>
-      <text class="index-value">最弱</text> 
+      <text class="index-value">{{weatherData.suggestion.air.brf}}</text>
     </view>
     <view class="index-1 more">
-      <!-- <image src="/image/travel.svg"></image>
-      <text class="index-name">旅游指数</text>
-      <text class="index-value">最弱</text> -->
-      <image src="/image/more.svg" ></image>
+      <image src="/image/more.svg"></image>
     </view>
+  </view>
+<!-- {{hide}} -->
+  <view class="cover {{hide}}"> 
+    <text>加载中</text>
+    <view class="circle-loading"></view>
   </view>
 
 </view>

@@ -1,17 +1,13 @@
 @import  "weather-plugin/my-weather.wxss" 
-/* page {
-  height: 100%;
-} */
 
-text {
-  color: #fff;
+.color-1{
+  color:rgb(50,50,50);
 }
 
 .container {
   height: 100%;
   width: 100%;
-  /* background-color: #005bff; */
-   background-color: rgb(200,200,200); 
+  background-color: rgb(220,220,220); 
   display: flex;
   flex-direction: column;
 }
@@ -19,10 +15,12 @@ text {
 .box-home {
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 20rpx; */
   padding: 20rpx 0;
   font-weight: 600;
-  background-color: #005bff;
+}
+
+.box-home text {
+  color: #fff;
 }
 
 .home-top{
@@ -32,26 +30,47 @@ text {
   padding: 0 40rpx;
 }
 
-.home-position{
+.weather-num{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0 20rpx;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.t-range{
+  font-weight: 700;
+}
+
+.t-now-num{
+  font-size: 90rpx;
+  font-weight: 600;
+  vertical-align:text-top;
+  line-height: 90rpx;
+}
+
+.t-unit{
+  font-size: 30rpx;
 }
 
 .city{
-  margin-top: 20rpx;
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 30rpx;
+  height: 60rpx;
+  padding: 0 20rpx;
 }
+
 .city text{
   text-align: center;
   font-size: 42rpx;
-  font-weight: 700;
+  margin-right: 10rpx;
+  /* font-weight: 700; */
 }
+
 .city image{
   width: 40rpx;
   height: 40rpx;
   vertical-align: middle;
   margin-right: 10rpx;
+  margin-bottom: 10rpx;
 }
 
 .weather{
@@ -62,22 +81,13 @@ text {
   margin-bottom: 10rpx;
 }
 
-/* .weather-img-num{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-} */
 .weather-img{
-  /* width:50%; */
-  /* height: 400rpx;
-  position: relative;
-  margin-bottom: 100rpx; */
   width: 100%;
   height: 600rpx;
   text-align: center;
   position: relative;
-  /* border: 1px rgb(200,200,0) solid; */
 }
+
 .weather-img image{
   width: 400rpx;
   height: 400rpx;
@@ -85,62 +95,41 @@ text {
   vertical-align: middle;
 }
 
-.weather-num{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center;
-  /* width: 50%; */
-}
-.t-range{
-  font-weight: 700;
-}
-.t-now-num{
-  /* font-size: 70rpx; */
-  font-size: 90rpx;
-  font-weight: 600;
-  vertical-align:text-top;
-}
-.t-unit{
-  font-size: 30rpx;
-  font-weight: 700;
-  /* vertical-align:text-top; */
-}
 .weather-wind-air{
   display: flex;
   flex-direction: row;
   line-height: 32rpx;
-  /* border: 1px rgb(0,0,0) solid; */
   margin: 20rpx 0;
-  
 }
+
 .weather-wind-air text{
   font-size: 32rpx;
   font-weight: 500;
 }
+
 .weather-wind{
   width: 50%;
   text-align: center;
 }
+
 .weather-wind image{
   width: 40rpx;
   height: 40rpx;
   vertical-align: middle;
   margin-right: 10rpx;
 }
+
 .vertical-line{
   height: 32rpx;
   width: 1px;
   background-color:white;
 }
-/* .weather-time{
-  width: 50%;
-  text-align: center;
-} */
+
 .weather-air{
   width: 50%;
   text-align: center;
 }
+
 .weather-air image{
   width: 40rpx;
   height: 40rpx;
@@ -151,169 +140,197 @@ text {
 swiper{
   width: 100%;
   height:150rpx;
-  /* background-color: rgb(240,240,240); */
   background-color: white;
-  margin: 10rpx 0;
+  margin-bottom: 5rpx;
 }
+
 swiper-item{
   display: flex;
   flex-direction: row;
   line-height: 150rpx;
 }
+
 swiper-item>view{
   width: 50%;
   display:flex;
   justify-content: space-around;
-  /* padding: 0 20rpx; */
 }
+
 .wea-detail-name{
   color: #888888;
   font-size: 32rpx;
-  /* font-weight: 600; */
 }
+
 .wea-detail-value{
   color:rgb(20,200,250);
   font-size: 32rpx;
-  /* font-weight: 600; */
 }
 
 .box-hours{
-  /* margin: 20rpx 0; */
-  /* background-color: rgba(255,255,255,0.2); */
-  /* background-color: #005bff; */
-  /* background-color: rgb(240,240,240); */
   background-color: white;
+}
 
-}
-.box-hours text{
-  color:rgb(20,20,20);
-}
-.weather-title{
-  width: 90%;
-  margin: 10rpx auto;
-  text-align: center;
-  border-bottom: 1px rgba(255,255,255,0.6) solid;
-}
-.weather-title text{
-  font-size: 36rpx;
-}
 .hours-list{
   display: flex;
   flex-direction: column;
 }
+
 .hours-item{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  line-height: 150rpx;
-  border-bottom: 1px rgb(150,150,150) solid;
+  /* line-height: 150rpx; */
+  line-height: 140rpx;
+  border-top: 1px rgb(220,220,220) solid;
   width:90%;
   margin:0 auto;
-  
 }
-.hours-item:last-child{
-  border: none;
+
+
+.hours-item:first-child{
+  /* border: none; */
 }
+
+.hours-item-right{
+  /* border: 1px rgb(200,0,0) solid; */
+}
+.hours-item-right image{
+  /* border: 1px rgb(0,0,200) solid; */
+  /* margin-right: 40rpx; */
+}
+
 .hours-item text{
-  font-size: 30rpx;
+  /* font-size: 30rpx; */
 }
+
+.hours-time{
+  color: #888888;
+}
+
+.hours-weather{
+  /* color: rgb(20,200,250); */
+  color: rgb(80,80,80);
+  min-width: 150rpx;
+   /* border: 1px rgb(200,200,0) solid;  */
+  /* margin-left: 20rpx; */
+  text-align: center;
+}
+
+.hours-t{
+  /* color: rgb(20,200,250); */
+   color: rgb(80,80,80);
+}
+
 .hours-img{
-  width: 150rpx;
-  height: 150rpx;
+  /* margin-right: 40rpx; */
+  /* width: 150rpx;
+  height: 150rpx; */
+  /* width: 100rpx;
+  height: 100rpx; */
+  width: 80rpx;
+  height: 80rpx;
   vertical-align: middle;
+  margin-top: 30rpx;
 }
 
 .box-days{
-  margin: 10rpx 0;
-  /* background-color: #005bff; */
-  /* background-color: rgb(240,240,240); */
-  background-color: rgb(200,200,200);
+  margin: 5rpx 0;
+  background-color: white;
 }
-.box-days text{
-  color:rgb(20,20,20);
-}
+
 .days-list{
   display: flex;
   flex-direction: row;
-   /* justify-content: space-around;  */
-
   white-space: nowrap; 
 }
+
 .days-list text{
   text-align: center;
-  /* margin: 10rpx 0; */
+  color: rgb(80,80,80);
 }
+
 .days-item{
-  /* display: flex;
-  flex-direction: column; */
   display: inline-block;
   box-sizing: border-box;
-   border: 1px solid rgb(200,200,200);  
-  width: 33%;
+  /* border: 1px solid rgb(220,220,220);   */
+  /* width: 33%; */
+  width: 20%;
   text-align: center;
-  /* background-color: rgb(240,240,240); */
   background-color: white;
   padding: 20rpx 0;
 }
-.days-date{
-  font-size: 32rpx;
-  /* font-weight: 600; */
+
+text.days-date{
+  /* font-size: 32rpx; */
   color:#888888;
 }
+
 .days-img{
-  width: 170rpx;
-  height: 170rpx;
+  /* width: 170rpx;
+  height: 170rpx; */
+  width: 60rpx;
+  height: 60rpx;
   margin: 0 auto;
 }
 
 .days-wea{
   margin: 10rpx 0;
 }
+
 .days-wea text{
-  font-size: 32rpx;
+  /* font-size: 32rpx; */
 }
 
 .days-t{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 120rpx;
-  /* border: 1px rgb(0,0,0) solid;  */
+  /* height: 120rpx; */
+  height: 80rpx;
 }
+
 .days-t text{
-  /* line-height: 42rpx; */
-  font-size: 32rpx;
+  /* font-size: 32rpx; */
 }
+
 .days-wind{
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 20rpx;
-  /* border: 1px rgb(0,0,0) solid; */
+}
+
+.days-wind text{
+  font-size: 20rpx;
 }
 
 .box-suggests{
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
+
 .index-1{
   display: flex;
   flex-direction: column;
   text-align: center;
   box-sizing: border-box;
-  /* background-color: rgb(240,240,240); */
   background-color: white;
   width: 25%;
-  border: 1px rgb(200,200,200) solid;
+  border: 1px rgb(220,220,220) solid;
   padding: 20rpx 0;
 }
+
+.index-1:nth-child(1),.index-1:nth-child(2),.index-1:nth-child(3),.index-1:nth-child(4){
+  border-top: none;
+}
+
 .index-1.more{
   display: flex;
   flex-direction: column;
   justify-content:center;
 }
+
 .index-1 image{
   width: 60rpx;
   height: 60rpx;
@@ -328,8 +345,54 @@ swiper-item>view{
 }
 
 .index-value{
-  /* color:rgb(20,20,20); */
-  color:rgb(20,200,250);
-  font-size: 30rpx;
+  /* color:rgb(20,200,250); */
+  color:rgb(80,80,80);
+  font-size: 28rpx;
   margin-top: 10rpx;
 }
+
+.cover{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  /* right: 0;
+  bottom: 0; */
+  /* background-color: rgba(0,0,0,1); */
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cover text{
+  font-size: 42rpx;
+  color:#888888;
+  text-align:center;
+}
+.hideit{
+  display:none;
+}
+
+.circle-loading{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100rpx;
+  margin-top: -100rpx;
+  
+  width:200rpx;
+  height: 200rpx;
+  border: 10rpx solid rgb(50,200,250);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation:circle 1s infinite linear;
+}
+
+@keyframes circle{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+ }
