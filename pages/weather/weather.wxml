@@ -1,7 +1,7 @@
 <view class="container">
-<wxs src="tools.wxs" module="tools" />
+  <wxs src="tools.wxs" module="tools" />
   <view class="box-home" style="background-color:{{tools.setBgc(weatherData.now.cond.code,now_dn)}}">
-  
+
     <view class="home-top">
       <view class="weather-num">
         <view class="t-now">
@@ -40,7 +40,7 @@
   </view>
 
   <view>
-    <swiper autoplay='true' vertical='true'>
+    <swiper autoplay='true' vertical='true' bindtap='ontap1'>
       <swiper-item>
         <view>
           <text class="wea-detail-name">日出时间</text>
@@ -53,42 +53,22 @@
       </swiper-item>
       <swiper-item>
         <view>
-          <text class="wea-detail-name">体感温度</text>
-          <text class="wea-detail-value">{{weatherData.now.fl}}℃</text>
+          <text class="wea-detail-name">pm10</text>
+          <text class="wea-detail-value">{{weatherData.aqi.city.pm10}}</text>
         </view>
         <view>
-          <text class="wea-detail-name">相对湿度</text>
-          <text class="wea-detail-value">{{weatherData.now.hum}}</text>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view>
-          <text class="wea-detail-name">降雨量</text>
-          <text class="wea-detail-value">{{weatherData.now.pcpn}}mm</text>
-        </view>
-        <view>
-          <text class="wea-detail-name">大气压强</text>
-          <text class="wea-detail-value">{{weatherData.now.pres}}hPa</text>
-        </view>
-      </swiper-item>
-      <swiper-item>
-        <view>
-          <text class="wea-detail-name">可见度</text>
-          <text class="wea-detail-value">{{weatherData.now.vis}}km</text>
-        </view>
-        <view>
-          <text class="wea-detail-name">PM2.5</text>
+          <text class="wea-detail-name">pm25</text>
           <text class="wea-detail-value">{{weatherData.aqi.city.pm25}}</text>
         </view>
       </swiper-item>
       <swiper-item>
         <view>
-          <text class="wea-detail-name">空气质量</text>
-          <text class="wea-detail-value">{{weatherData.aqi.city.qlty}}</text>
+          <text class="wea-detail-name">紫外线指数</text>
+          <text class="wea-detail-value">{{weatherData.daily_forecast[0].uv}}</text>
         </view>
         <view>
-          <text class="wea-detail-name">空气质量指数</text>
-          <text class="wea-detail-value">{{weatherData.aqi.city.aqi}}</text>
+          <text class="wea-detail-name">可见度</text>
+          <text class="wea-detail-value">{{weatherData.daily_forecast[0].vis}}km</text>
         </view>
       </swiper-item>
     </swiper>
@@ -99,11 +79,11 @@
     <block wx:for="{{weatherData.hourly_forecast}}" wx:for-index="idx" wx:for-item="item" wx:key="key">
       <view class="hours-list">
         <view class="hours-item" style="border-top:{{idx==0 ? 0 : '1px'}} rgb(220,220,220) solid">
-           <text class="hours-time">{{tools.cutStrToEnd(item.date,5)}}</text> 
-           <text class="hours-weather">{{item.cond.txt}}</text> 
+          <text class="hours-time">{{tools.cutStrToEnd(item.date,5)}}</text>
+          <text class="hours-weather">{{item.cond.txt}}</text>
           <!-- <view class="hours-item-right"> -->
-             <image class="hours-img" src="/image/wea-icon/{{tools.setHoursWea(item.cond.code,hours_dn[idx])}}"></image> 
-             <text class="hours-t">{{item.tmp}}℃</text>  
+          <image class="hours-img" src="/image/wea-icon/{{tools.setHoursWea(item.cond.code,hours_dn[idx])}}"></image>
+          <text class="hours-t">{{item.tmp}}℃</text>
 
           <!-- </view> -->
         </view>
@@ -180,8 +160,8 @@
       <image src="/image/more.svg"></image>
     </view>
   </view>
-<!-- {{hide}} -->
-  <view class="cover {{hide}}"> 
+  <!-- {{hide}} -->
+  <view class="cover {{hide}}">
     <text>加载中</text>
     <view class="circle-loading"></view>
   </view>

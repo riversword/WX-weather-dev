@@ -3,7 +3,7 @@
     "pages/weather/weather",
     "pages/map/map",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/weather/weather-more/weather-more"
   ],
   "window":{
     "navigationBarBackgroundColor": "#ffffff",
@@ -12,7 +12,8 @@
   },
   "tabBar":{
     "list":[
-      {"pagePath":"pages/weather/weather","text":"天气","iconPath": "image/weather.png","selectedIconPath":"image/weather-active.png"},{"pagePath":"pages/map/map","text":"关于","iconPath":"image/face.png","selectedIconPath": "image/face-active.png"}
+      {
+        "pagePath":"pages/weather/weather","text":"天气","iconPath": "image/weather.png","selectedIconPath":"image/weather-active.png"},{"pagePath":"pages/map/map","text":"关于","iconPath":"image/face.png","selectedIconPath": "image/face-active.png"}
     ],
     "color":"#888888",
     "selectedColor":"rgb(20,200,250)",

@@ -1,0 +1,112 @@
+<view class="container">
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">日出时间</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.sr}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">日落时间</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.ss}}</text>
+    </view>
+  </view>
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">月升时间</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.mr}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">月落时间</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].astro.ms}}</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">空气质量</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.qlty}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">空气质量指数</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.aqi}}</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">pm10</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.pm10}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">pm25</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.pm25}}</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">co</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.co}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">o3</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.o3}}</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">no2</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.no2}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">so2</text>
+      <text class="wea-detail-value">{{weatherData.aqi.city.so2}}</text>
+    </view>
+  </view>
+
+  <!-- <wxs src="../tools.wxs" module="tools" />
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">经度</text>
+      <text class="wea-detail-value">{{tools.dealNum(weatherData.basic.lon)}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">纬度</text>
+      <text class="wea-detail-value">{{tools.dealNum(weatherData.basic.lat)}}</text>
+    </view>
+  </view> -->
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">降雨量</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].pcpn}}cm</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">降雨概率</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].pop}}%</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">相对湿度</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].hum}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">大气压强</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].pres}}</text>
+    </view>
+  </view>
+
+  <view class="row">
+    <view>
+      <text class="wea-detail-name">紫外线指数</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].uv}}</text>
+    </view>
+    <view>
+      <text class="wea-detail-name">可见度</text>
+      <text class="wea-detail-value">{{weatherData.daily_forecast[0].vis}}km</text>
+    </view>
+  </view>
+
+</view>

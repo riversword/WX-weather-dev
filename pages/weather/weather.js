@@ -2,6 +2,8 @@
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.min.js');
 var qqmapsdk;
 
+var app = getApp();
+
 Page({
   data: {
     
@@ -74,6 +76,7 @@ Page({
         that.setData({ hours_dn: hourDN });
         //that.setData({ hours_num: hoursTime_num });
         
+        app.globalData.g_weatherData = weatherData;
 
         //console.log(hoursTime_num);
         console.log(timeNum);
@@ -96,6 +99,11 @@ Page({
       complete: function (res) {
         console.log(res);
       }
+    });
+  },
+  ontap1: function () {
+    wx.navigateTo({
+      url: 'weather-more/weather-more'
     });
   }
 });

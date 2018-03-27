@@ -1,7 +1,15 @@
 
 var cutStrToEnd = function (str,startNum) {
   return str.slice(startNum);
-}
+};
+
+var dealNum = function(x){
+  var a = x.toString();
+  var b = a.indexOf('.');
+  if (b != -1 && b < a.length - 3) {
+    return a.slice(0, b + 3);
+  } else return x;
+};
 
 //设置背景色
 var setBgc = function (str, dn){
@@ -193,6 +201,7 @@ var judgeDn = function (str, timeNum, start, end){
 
 module.exports = {
   cutStrToEnd: cutStrToEnd,
+  dealNum: dealNum,
   setBgc: setBgc,
   setWeaClass: setWeaClass,
   setHoursWea: setHoursWea,
